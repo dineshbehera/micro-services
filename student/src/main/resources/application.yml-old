@@ -1,0 +1,26 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+server:
+  port: 8090
+spring:
+  application:
+    name: students
+  config:
+    import: optional:configserver:http://localhost:8888
+  datasource:
+    password: root
+    url: jdbc:mysql://172.17.02:3306/testdb?allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        formate_sql: true;
+    show-sql: true
